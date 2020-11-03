@@ -47,17 +47,17 @@ Vale lembrar que todos os clientes gerados possuem um pedido, representado inici
 
 A estratégia de resolução segue os seguintes passos:
 
-	1. O cliente possui uma estrutura, contendo informações sobre seu pedido e a sua mesa. A medida em que o tempo passa, novos clientes são gerados.
+1. O cliente possui uma estrutura, contendo informações sobre seu pedido e a sua mesa. A medida em que o tempo passa, novos clientes são gerados.
 
-	2. Quando um novo cliente for gerado, ele é posicionado em uma das mesas disponíveis, faz seu pedido, e entra na fila de espera até que seu hamburguer seja entregue.
+2. Quando um novo cliente for gerado, ele é posicionado em uma das mesas disponíveis, faz seu pedido, e entra na fila de espera até que seu hamburguer seja entregue.
 
-	3. Para realizar o pedido, o cliente tem 20 opções diferentes de hamburguer. O programa utiliza a biblioteca ```time.h``` para gerar um número aleatório entre 1 e 20 e a partir desse número, o pedido é mapeado dentro do cardápio.
+3. Para realizar o pedido, o cliente tem 20 opções diferentes de hamburguer. O programa utiliza a biblioteca ```time.h``` para gerar um número aleatório entre 1 e 20 e a partir desse número, o pedido é mapeado dentro do cardápio.
 
-	4. O pedido do primeiro cliente da fila chega ao jogador, e ele o monta com os mesmos ingredientes solicitados, mas **não necessáriamente na mesma ordem**. O único pré requisito é que exista um pão na base e outro no topo do hamburguer, pois só assim o jogo vai entender que o pedido foi feito e está disponível para entrega.
+4. O pedido do primeiro cliente da fila chega ao jogador, e ele o monta com os mesmos ingredientes solicitados, mas **não necessáriamente na mesma ordem**. O único pré requisito é que exista um pão na base e outro no topo do hamburguer, pois só assim o jogo vai entender que o pedido foi feito e está disponível para entrega.
 
-	5. Feita a montagem, o pedido é entregue na mesa do respectivo cliente. Se o hamburguer feito pelo jogador é igual ao solicitado, o cliente sai da fila de espera e o próximo freguês é atendido. 
+5. Feita a montagem, o pedido é entregue na mesa do respectivo cliente. Se o hamburguer feito pelo jogador é igual ao solicitado, o cliente sai da fila de espera e o próximo freguês é atendido. 
 
-	6. Como os clientes são gerados continuamente, o processo descrito acima é repetido até que o jogador perca o jogo, e então é mostrado a ele qual foi o número total de mesas antendidas corretamente.
+6. Como os clientes são gerados continuamente, o processo descrito acima é repetido até que o jogador perca o jogo, e então é mostrado a ele qual foi o número total de mesas antendidas corretamente.
 
 
 ## Relação dos conceitos com a matéria
