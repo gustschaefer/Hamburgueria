@@ -4,6 +4,11 @@ Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplin
 
 ## Demo
 
+<div align="center">
+<img src="./screenshots/demo.gif" >
+<p>Perfectly balanced</p>
+</div>
+
 <p align="center">
   ![](./screenshots/demo.gif)
 </p>
