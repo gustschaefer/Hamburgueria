@@ -1,6 +1,6 @@
 # Hamburgueria
 
-Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplina "Estrutura de Dados e Algoritmos". O jogo tem como objetivo aplicar de maneira prática os conteúdos aprendidos na disciplina, além utilizar a biblioteca gráfica **SFML em C/C++** afim de criar interface pra o usuário. 
+Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplina "Estrutura de Dados e Algoritmos". O jogo tem como objetivo aplicar os conteúdos aprendidos na disciplina, além utilizar a biblioteca gráfica **SFML em C/C++** afim de criar a interface pra o usuário. 
 
 ## Demo
 
@@ -27,7 +27,9 @@ Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplin
 
 ## Introdução 
 
-O projeto constitui em um jogo que simula o ambiente de uma hamburgueria, focando principalmente no fluxo de pedidos, feitos de maneira arbitraria pelos clientes (computador), e na montagem dos hamburguers. As principais motivações para a construção do projeto foram a demonstração de como estruturas de dados estão implicitamente presentes no cotidiano, e de como a otimização do pipeline de tarefas complexas pode ocorrer com a estrutura de dados apropriada, dependendo da situação e aplicabilidade dos dados. 
+O projeto constitui em um jogo que simula o ambiente de uma hamburgueria, focando principalmente no fluxo de pedidos, feitos de maneira arbitraria pelos clientes (computador), e na montagem dos hamburguers. 
+
+As principais motivações para a construção do projeto foram a demonstração de como estruturas de dados estão implicitamente presentes no cotidiano, e de como a otimização do pipeline de tarefas complexas pode ocorrer com a estrutura de dados apropriada, dependendo da situação e aplicabilidade dos dados. 
 
 Como o ambiente de um restaurante é dinâmico, torna-se necessário utilizar estratégias para lidar com a quantidade de pedidos e clientes de forma rápida, mantendo a organização e respeitando a ordem correta das solicitações. Além disso, é imprescindível garantir que cada cliente receba seu hamburguer da mesma maneira que o pediu. Por este motivo, estruturas de dados são tão aplicáveis no projeto "Hamburgueria", já que com o auxílio delas há um ganho de velocidade e organização de tarefas trabalhosas.
 
@@ -65,7 +67,7 @@ A estratégia de resolução do problema segue os seguintes passos:
 
 5.	Feita a montagem, o pedido é entregue na mesa do respectivo cliente. Se o hamburguer feito pelo jogador é igual ao solicitado, o cliente sai da fila de espera e o próximo freguês é atendido. 
 
-6.	Como os clientes são gerados continuamente, o processo descrito acima é repetido até que o jogador perca o jogo, e então é mostrado a ele qual foi o número total de mesas antendidas corretamente.
+6.	Como os clientes são gerados continuamente, o processo descrito acima é repetido até que o jogador perca o jogo (mais de 5 clientes na fila de espera), e então é mostrado a ele qual foi o número total de mesas antendidas corretamente.
 
 ### Cardápio
 
@@ -80,7 +82,7 @@ A lista de ingredientes aparece para o jogador na tela principal do jogo:
 
 <div align="center">
 <img src="./screenshots/ingredientes.png">
-<p>Cardápio</p>
+<p>Ingredientes</p>
 </div>
 
 Cada um desses ingredientes é representado por um número inteiro 2^n (1, 2, 4, 8, ..., 256).
@@ -100,9 +102,9 @@ Já o **pão** possue valor 0.
 Portanto, o valor do pedido completo é a soma dos ingredientes que o compoem. Por exemplo, um hambúrguer de carne com alface, tomate, picles, cheddar e bacon é a soma:
 
 0 (Pães) + 32 (hambúrguer de carne) + 16 (alface) + 4 (tomate) + 8 (picles) + 1 (cheddar) + 256 (bacon) = 
-Valor do pedido: **317**
+**317** (Valor do pedido) 
 
-Logo, cada uma das 20 opções é representada por um número inteiro (soma dos ingredientes escolhidos por) que foi feita de maneira que nenhuma opção fosse igual. Utilizando a funcão ```srand(time(NULL))``` é possível gerar um número aleatório entre 1 e 20 (```int r = (rand() % 20) + 1```). Após isso, o número é mapeado com um dos pedidos possíveis do cardápio.
+Logo, cada uma das 20 opções é representada por um número inteiro (soma dos ingredientes escolhidos) que foi feita de maneira que nenhuma opção fosse igual. Utilizando a funcão ```srand(time(NULL))``` é possível gerar um número aleatório entre 1 e 20 (```int r = (rand() % 20) + 1```). Após isso, o número é mapeado com um dos pedidos possíveis do cardápio.
 
 * 1 	===>	62 **(Cr + S + T + A + P)**
 * 2 	===>	54 **(Cr + S + T + A)**
@@ -140,15 +142,15 @@ O principal motivo para a utilização da pilha foi a **montagem do hamburguer**
 
 Como pilhas são caracterizadas por uma estrutura de dados em que o **último dado inserido é o topo**, decidimos utilizá-las como responsáveis na montagem dos hambúrguers, pois os ingredientes são empilhados de maneira coerente, sempre um pão na base, ingredientes no meio, e outro pão no topo. Dessa maneira não há como modificar o pedido em suas partes intermediarias, e sempre que um pão for o topo da pilha, ou a montagem do pedido foi iniciada ou o pedido foi finalizado.
 
-Outro fator importante é que **não importa qual a ordem dos ingredientes**, desde que exista um pão na base e um no topo, no meio deles o jogador pode fazer o hambúrguer inserindo os ingredientes em qualquer ordem, desde que **sejam os mesmos ingredientes do pedido**. Como cada ingrediente é um número inteiro, podemos apenas somar o valor de cada um no hambúrguer feito pelo player e comparar com valor do pedido feito pelo cliente, se as somas forem iguais o pedido foi feito corretamente, senão o jogador deverá refazer o hambúrguer.
+Outro fator importante é que **não importa qual a ordem dos ingredientes**, desde que exista um pão na base e um no topo, no meio deles o jogador pode fazer o hambúrguer inserindo os ingredientes em qualquer ordem, desde que **sejam os mesmos ingredientes do pedido**. Como cada ingrediente é um número inteiro, podemos apenas somar o valor de cada um no hambúrguer feito pelo player e comparar com valor do pedido feito pelo cliente, se as somas forem iguais, o pedido foi feito corretamente, senão o jogador deverá refazer o hambúrguer.
 
-Por o hambúrguer ser representado por uma pilha, não há como remover um ingrediente que foi colocado erroneamente durante a montagem do pedido. Portanto, se o jogador perceber que inseriu algum ingrediente errado enquanto montava o pedido, a única opção é apagar tudo e recomeçar. Para isso, há um botão no canto infeior esquerdo com formato de lixeira que exclui todo o atual progresso.
+Como hambúrguer é representado por uma pilha, não há como remover um ingrediente que foi colocado erroneamente durante a montagem do pedido. Portanto, se o jogador perceber que inseriu algum ingrediente errado enquanto montava o pedido, a única opção é apagar tudo e recomeçar. Para isso, há um botão no canto infeior esquerdo com formato de lixeira que exclui todo o atual progresso de montagem.
 
 ### Fila
 
 O principal motivo para a utilização da fila foi **ordenação dos clientes**.
 
-Filas são essenciais, pois como os pedidos devem ser feitos e entregues para o **primeiro** cliente que pediu (início da fila), há um gerenciamento de como está o andamento do restaurante, pois podemos saber o tamanho da fila e qual é o cliente da vez. Ao escolher sua mesa e realizar o pedido, o cliente fica na fila aguardando, já que muito provavelmente outros clientes já haviam chegando antes dele, e possuem prioridade de entrega por estarem em posições mais avançadas na espera. Na medida em que os hambúrguers são entregues, **o próximo da fila deve ser o próximo cliente atendido**, e assim até que o jogo acabe.
+Filas são essênciais, pois como os pedidos devem ser feitos e entregues para o **primeiro** cliente que faz a solicitação (início da fila), há um gerenciamento de como está o andamento do restaurante, pois podemos saber o tamanho da fila e qual é o cliente da vez. Ao escolher sua mesa e realizar o pedido, o cliente fica na fila aguardando, já que muito provavelmente outros clientes já haviam chegando antes dele, e possuem prioridade de entrega por estarem em posições mais avançadas na espera. Na medida em que os hambúrguers são entregues, **o próximo da fila deve ser o próximo cliente atendido**, e assim até que o jogo acabe.
 
 Para saber quantos clientes tem na fila, existe um sinalizador abaixo da descrição do pedido. Na medida em que novos clientes vão chegando, esse número aumenta, indicando que o jogador deve ser apressar ou senão vai perder o jogo.
 
@@ -163,7 +165,7 @@ A tela padrão do jogo é mostrada abaixo.
 
 A recursão foi usada apenas para **impressão do hambúrguer**, e é iniciada logo quando a pilha começa ser montada. Desse modo, a cada ingrediente que o jogador arrasta para montar o pedido, é utilizado recursão para **atualizar o que está sendo mostrado na tela**, tornando o jogo dinâmico. Se não fosse utilizado recursão, as camadas seriam impressas na ordem inversa.
 
-Abaixo é mostrado como um exemplo de um hambúrguer sendo impresso dinâmicamente usando recursão.
+Abaixo é mostrado um exemplo de um hambúrguer sendo impresso dinâmicamente usando recursão.
 
 <div align="center">
 <img src="./screenshots/recursao.gif" >
