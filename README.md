@@ -4,7 +4,9 @@ Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplin
 
 ## Demo
 
-![](./screenshots/demo.gif)
+<p align="center">
+  ![](./screenshots/demo.gif)
+</p>
 
 ## Sumário
 
@@ -75,7 +77,7 @@ Como já dito, existem 20 opções disponiveis no cardápio. Cada opção foi cr
 A lista de ingredientes aparece para o jogador na tela principal do jogo:
 
 <p align="center">
-  <img src="./screenshos/ingredientes.png">
+  <img src="./screenshots/ingredientes.png">
 </p>
 
 Cada um desses ingredientes é representado por um número inteiro 2^n (1, 2, 4, 8, ..., 256).
