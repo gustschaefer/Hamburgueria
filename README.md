@@ -6,12 +6,8 @@ Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplin
 
 <div align="center">
 <img src="./screenshots/demo.gif" >
-<p>Perfectly balanced</p>
+<p>Demonstração do jogo</p>
 </div>
-
-<p align="center">
-  ![](./screenshots/demo.gif)
-</p>
 
 ## Sumário
 
@@ -81,9 +77,10 @@ Como já dito, existem 20 opções disponiveis no cardápio. Cada opção foi cr
 
 A lista de ingredientes aparece para o jogador na tela principal do jogo:
 
-<p align="center">
-  <img src="./screenshots/ingredientes.png">
-</p>
+<div align="center">
+<img src="./screenshots/ingredientes.png">
+<p>Cardápio</p>
+</div>
 
 Cada um desses ingredientes é representado por um número inteiro 2^n (1, 2, 4, 8, ..., 256).
 
