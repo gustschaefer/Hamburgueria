@@ -77,6 +77,7 @@ Como já dito, existem 20 opções disponiveis no cardápio. Cada opção foi cr
 
 A lista de ingredientes aparece para o jogador na tela principal do jogo:
 
+
 <div align="center">
 <img src="./screenshots/ingredientes.png">
 <p>Cardápio</p>
@@ -101,7 +102,7 @@ Portanto, o valor do pedido completo é a soma dos ingredientes que o compoem. P
 0 (Pães) + 32 (hambúrguer de carne) + 16 (alface) + 4 (tomate) + 8 (picles) + 1 (cheddar) + 256 (bacon) = 
 Valor do pedido: **317**
 
-Logo, cada uma das 20 opções é representada por um número inteiro (soma dos ingredientes escolhidos por nós) que foi feita de maneira que nenhuma opção fosse igual. Utilizando a funcão ```srand(time(NULL))``` é possível gerar um número aleatório entre 1 e 20 (```int r = (rand() % 20) + 1```). Após isso, o número é mapeado com um dos pedidos possíveis do cardápio.
+Logo, cada uma das 20 opções é representada por um número inteiro (soma dos ingredientes escolhidos por) que foi feita de maneira que nenhuma opção fosse igual. Utilizando a funcão ```srand(time(NULL))``` é possível gerar um número aleatório entre 1 e 20 (```int r = (rand() % 20) + 1```). Após isso, o número é mapeado com um dos pedidos possíveis do cardápio.
 
 * 1 	===>	62 **(Cr + S + T + A + P)**
 * 2 	===>	54 **(Cr + S + T + A)**
@@ -137,19 +138,37 @@ Como dito acima, dois tipos diferentes de estrutura de dados foram usados, cada 
 
 O principal motivo para a utilização da pilha foi a **montagem do hamburguer**.
 
-Como pilhas são caracterizadas por uma estrutura de dados em que o último dado inserido é o topo, decidimos utilizá-las como responsáveis na montagem dos hamburguers, pois os ingredientes são empilhados de maneira coerente, sempre um pão na base, ingredientes no meio, e outro pão no topo. Dessa maneira não há como modificar o pedido em suas partes intermediarias, e sempre que um pão for o topo da pilha, ou a montagem do pedido foi iniciada ou o pedido foi finalizado.
+Como pilhas são caracterizadas por uma estrutura de dados em que o **último dado inserido é o topo**, decidimos utilizá-las como responsáveis na montagem dos hambúrguers, pois os ingredientes são empilhados de maneira coerente, sempre um pão na base, ingredientes no meio, e outro pão no topo. Dessa maneira não há como modificar o pedido em suas partes intermediarias, e sempre que um pão for o topo da pilha, ou a montagem do pedido foi iniciada ou o pedido foi finalizado.
 
-Outro fator importante é como cada 
+Outro fator importante é que **não importa qual a ordem dos ingredientes**, desde que exista um pão na base e um no topo, no meio deles o jogador pode fazer o hambúrguer inserindo os ingredientes em qualquer ordem, desde que **sejam os mesmos ingredientes do pedido**. Como cada ingrediente é um número inteiro, podemos apenas somar o valor de cada um no hambúrguer feito pelo player e comparar com valor do pedido feito pelo cliente, se as somas forem iguais o pedido foi feito corretamente, senão o jogador deverá refazer o hambúrguer.
+
+Por o hambúrguer ser representado por uma pilha, não há como remover um ingrediente que foi colocado erroneamente durante a montagem do pedido. Portanto, se o jogador perceber que inseriu algum ingrediente errado enquanto montava o pedido, a única opção é apagar tudo e recomeçar. Para isso, há um botão no canto infeior esquerdo com formato de lixeira que exclui todo o atual progresso.
 
 ### Fila
 
 O principal motivo para a utilização da fila foi **ordenação dos clientes**.
 
-Filas são essenciais, pois como os pedidos devem ser feitos e entregues para o primeiro cliente que pediu (início da fila), há um gerenciamento de como está o andamento do restaurante, pois podemos saber o tamanho da fila e qual cliente da vez. Ao escolher sua mesa e realizar o pedido, o cliente fica na fila aguardando, já que muito provavelmente outros clientes já haviam chegando antes dele, e possuem prioridade de entrega por estarem em posições mais avançadas na espera. Na medida em que os hamburguers são entregues, o próximo da fila deve ser o próximo cliente atendido, e assim até não haver mais clientes aguardando nas mesas, ou seja, nenhum cliente está na fila.
+Filas são essenciais, pois como os pedidos devem ser feitos e entregues para o **primeiro** cliente que pediu (início da fila), há um gerenciamento de como está o andamento do restaurante, pois podemos saber o tamanho da fila e qual é o cliente da vez. Ao escolher sua mesa e realizar o pedido, o cliente fica na fila aguardando, já que muito provavelmente outros clientes já haviam chegando antes dele, e possuem prioridade de entrega por estarem em posições mais avançadas na espera. Na medida em que os hambúrguers são entregues, **o próximo da fila deve ser o próximo cliente atendido**, e assim até que o jogo acabe.
+
+Para saber quantos clientes tem na fila, existe um sinalizador abaixo da descrição do pedido. Na medida em que novos clientes vão chegando, esse número aumenta, indicando que o jogador deve ser apressar ou senão vai perder o jogo.
+
+A tela padrão do jogo é mostrada abaixo. 
+
+<div align="center">
+<img src="./screenshots/tela-completa.png">
+<p>Demonstração da tela do jogo e seus botões</p>
+</div>
 
 ### Recursão
 
+A recursão foi usada apenas para **impressão do hambúrguer**, e é iniciada logo quando a pilha começa ser montada. Desse modo, a cada ingrediente que o jogador arrasta para montar o pedido, é utilizado recursão para **atualizar o que está sendo mostrado na tela**, tornando o jogo dinâmico. Se não fosse utilizado recursão, as camadas seriam impressas na ordem inversa.
 
+Abaixo é mostrado como um exemplo de um hambúrguer sendo impresso dinâmicamente usando recursão.
+
+<div align="center">
+<img src="./screenshots/recursao.gif" >
+<p>Recursão sendo utilizada para imprimir o hambúrguer</p>
+</div>
 
 
 ## Fluxograma
