@@ -12,8 +12,8 @@ Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplin
 	- [Sinopse do jogo](#sinopse)
 - [Descrição do problema](#descrição-do-problema)
 - [Relação dos conceitos com a matéria](#relação-dos-conceitos-com-a-matéria)
-    - [Pilha](#pilha:-montagem-do-hamburguer)
-    - [Fila](#fila:-ordem-dos-clientes)
+    - [Pilha](#pilha-montagem-do-hamburguer)
+    - [Fila](#fila-ordem-dos-clientes)
     - [Recursão](#recursão)
 - [Fluxograma](#fluxograma)
 - [Descrição do fluxograma](#descrição-do-fluxograma)
@@ -64,11 +64,11 @@ A estratégia de resolução segue os seguintes passos:
 
 Como dito acima, três tipos diferentes de estrutura de dados foram usados, cada uma desempenhando um papel específico no fluxo de funcionamento do programa. Abaixo é descrito detalhadamente o motivo da utilização de cada uma.
 
-### Pilha: Montagem do hamburguer
+### Pilha - Montagem do hamburguer
 
 Como pilhas são caracterizadas por uma estrutura de dados em que o último dado inserido é o topo, decidimos utilizá-las como responsáveis na montagem dos hamburguers, pois os ingredientes são empilhados de maneira coerente, sempre um pão na base, ingredientes no meio, e outro pão no topo. Dessa maneira não há como modificar o pedido em suas partes intermediarias, e sempre que um pão for o topo da pilha, ou a montagem do pedido foi iniciada ou o pedido foi finalizado.
 
-### Fila: Ordem dos clientes
+### Fila - Ordem dos clientes
 
 Filas são essenciais, pois como os pedidos devem ser feitos e entregues para o primeiro cliente que pediu (início da fila), há um gerenciamento de como está o andamento do restaurante, pois podemos saber o tamanho da fila e qual cliente da vez. Ao escolher sua mesa e realizar o pedido, o cliente fica na fila aguardando, já que muito provavelmente outros clientes já haviam chegando antes dele, e possuem prioridade de entrega por estarem em posições mais avançadas na espera. Na medida em que os hamburguers são entregues, o próximo da fila deve ser o próximo cliente atendido, e assim até não haver mais clientes aguardando nas mesas, ou seja, nenhum cliente está na fila.
 
