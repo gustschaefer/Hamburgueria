@@ -175,7 +175,7 @@ Abaixo é mostrado um exemplo de um hambúrguer sendo impresso dinâmicamente us
 
 ## Fluxograma
 
-O fluxograma a seguir descreve a lógica de funcionamente do programa, detalhando o passo a passo da resolução do problema.
+O fluxograma a seguir descreve a lógica de funcionamento do programa, detalhando o passo a passo da resolução do problema.
 
 <div align="center">
 <img src="./fluxograma.png" >
