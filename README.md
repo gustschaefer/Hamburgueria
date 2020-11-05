@@ -97,7 +97,7 @@ Cada um desses ingredientes é representado por um número inteiro 2^n (1, 2, 4,
 * Hambúrguer de **peixe** (Px) = 128
 * Bacon (B) = 256
 
-Já o **pão** possue valor 0.
+Já o **pão da base** possui valor 0, enquanto o **topo** vale -1, porém, esse é excluido antes da contagem da soma.
 
 Portanto, o valor do pedido completo é a soma dos ingredientes que o compoem. Por exemplo, um hambúrguer de carne com alface, tomate, picles, cheddar e bacon é a soma:
 
