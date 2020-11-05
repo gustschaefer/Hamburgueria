@@ -1,0 +1,8 @@
+﻿  jogo.cpp
+c:\users\fenw\desktop\nova pasta (2)\jogo\jogo.cpp(492): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  Gerando código
+  1 of 81 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finalizada a geração de código
+  jogo.vcxproj -> C:\Users\fenw\Desktop\Nova pasta (2)\Release\jogo.exe

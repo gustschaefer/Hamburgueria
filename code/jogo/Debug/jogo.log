@@ -1,0 +1,7 @@
+﻿  fila_clientes.cpp
+c:\users\fenw\desktop\nova pasta (2)\jogo\fila_clientes.cpp(75): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  jogo.cpp
+c:\users\fenw\desktop\nova pasta (2)\jogo\jogo.cpp(427): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  pilha_sanduiche.cpp
+  Gerando Código...
+  jogo.vcxproj -> C:\Users\fenw\Desktop\Nova pasta (2)\Debug\jogo.exe
