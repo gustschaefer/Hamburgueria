@@ -97,7 +97,7 @@ Cada um desses ingredientes é representado por um número inteiro 2^n (1, 2, 4,
 * Hambúrguer de **peixe** (Px) = 128
 * Bacon (B) = 256
 
-Já o **pão da base** possui valor 0, enquanto o **topo** vale -1, porém, esse é excluido antes da contagem da soma.
+Já o **pão** possue valor 0.
 
 Portanto, o valor do pedido completo é a soma dos ingredientes que o compoem. Por exemplo, um hambúrguer de carne com alface, tomate, picles, cheddar e bacon é a soma:
 
@@ -175,7 +175,7 @@ Abaixo é mostrado um exemplo de um hambúrguer sendo impresso dinâmicamente us
 
 ## Fluxograma
 
-O fluxograma a seguir descreve a lógica de funcionamente do programa, detalhando os o passo a passa na resolução do problema.
+O fluxograma a seguir descreve a lógica de funcionamente do programa, detalhando o passo a passo da resolução do problema.
 
 <div align="center">
 <img src="./fluxograma.png" >
