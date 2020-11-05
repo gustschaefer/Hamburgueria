@@ -175,6 +175,10 @@ Abaixo é mostrado um exemplo de um hambúrguer sendo impresso dinâmicamente us
 
 ## Fluxograma
 
+<div align="center">
+<img src="./fluxograma.png" >
+<p>Fluxograma do jogo Hamburgueria</p>
+</div>
 
 
 ## Descrição do fluxograma
