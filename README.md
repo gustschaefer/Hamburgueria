@@ -49,7 +49,7 @@ pedir um hambúrger com bacon e tomate implica em um hambúrger, bacon e tomate 
 
 Para criação do projeto, foram utilizadas duas estruturas de dados diferentes, sendo elas **Pilha** e **Fila**, além de **Recursão**. 
 
-Durante o jogo, os clientes são gerados de maneira constante dentro de um intervalo de tempo, e este processo só acaba quando um número limite de clientes na fila de espera for atingido, ou seja, o restaurante está cheio e não há mais espaço para novos clientes. Portanto, o problema geral do projeto é lidar de maneira dinâmica com a entrada e saida de elementos (clientes) em uma fila, e trabalhar com a manipulação de dados em uma pilha (ingredientes do hamburguer).
+Durante o jogo, os clientes são gerados de maneira constante dentro de um intervalo de tempo de **9 segundos**, e este processo só acaba quando um número limite de **6 clientes** na fila de espera for atingido (o cliente da vez e mais 5 clientes na fila), ou seja, o restaurante está cheio e não há mais espaço para novos clientes. Portanto, o problema geral do projeto é lidar de maneira dinâmica com a entrada e saida de elementos (clientes) em uma fila, e trabalhar com a manipulação de dados em uma pilha (ingredientes do hamburguer).
 
 Vale lembrar que todos os clientes gerados possuem um pedido, representado inicialmente por um número entre 1 e 20 (total de opções de hamburguer do restaurante) e que esses pedidos são feitos de maneira aleatória pelo programa.
 
@@ -175,6 +175,8 @@ Abaixo é mostrado um exemplo de um hambúrguer sendo impresso dinâmicamente us
 
 ## Fluxograma
 
+O fluxograma a seguir descreve a lógica de funcionamente do programa, detalhando os o passo a passa na resolução do problema.
+
 <div align="center">
 <img src="./fluxograma.png" >
 <p>Fluxograma do jogo Hamburgueria</p>
@@ -182,3 +184,19 @@ Abaixo é mostrado um exemplo de um hambúrguer sendo impresso dinâmicamente us
 
 
 ## Descrição do fluxograma
+
+O primeiro passo lógico é inicar a fila de clientes, que vai sendo modificada durante a partida. 
+Como cada cliente é gerado a cada 9 segundos, o temporizador é iniciado, se o tempo passou, um novo cliente é inserido na fila e seus atributos são configurados:
+
+* Sua mesa se torna uma das diponíveis
+* Seu pedido é gerado de maneira aleatória
+
+E então o temporizador é reiniciado. Entretanto, se durante o processo de montagem do hambúrguer o tempo chegar a 9 segundos, mais um cliente é adicionado, independente em que ponto de criação do pedido o jogador esteja.
+
+Após cada inserção, é feita uma checagem do tamanho da fila de espera, e se ela atingir 6 clientes, o jogo acaba, independente do momento.
+
+Se a fila ainda não chegou ao seu limite, o pedido a ser feito se torna o pedido do cliente no início da fila. O jogador monta o hambúrguer conforme o solicitado, colocando cada ingrediente por vez e assim a pilha do hambúrguer vai se modificando dinâmicamente. Quando o jogador finaliza a montagem do pedido (com no minimo um pão no base e um no topo da pilha de ingredientes), é feita uma comparação entre o valor do hambúrguer feito pelo player e o do hambúrguer solicitado pelo cliente. Se os dois valores não forem iguais, o jogador deve refazer o pedido até que fique certo.
+
+Se o jogador montou o pedido corretamente, o cliente da vez sai da fila, e o próximo cliente é atendido (imediatamente o próximo na fila de espera). Após isso, o processo de montagem é feito novamente pelo jogador, continuando em um loop até que o jogo acabe.
+
+É importante lembrar que a inserção de clientes na fila é feita constantemente no jogo, assim como a verificação do tamanho da fila, que é mostrada ao jogador para que ele tenha noção de como está o andamento do restaurante. 
