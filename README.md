@@ -1,6 +1,6 @@
 # Hamburgueria
 
-Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer para a disciplina "Estrutura de Dados e Algoritmos". O jogo tem como objetivo aplicar os conteúdos aprendidos na disciplina, além utilizar a biblioteca gráfica **SFML em C/C++** afim de criar a interface pra o usuário. 
+Este é um jogo criado por Vinicius Negrelli e Gustavo Schaefer. O jogo tem como objetivo aplicar os conteúdos aprendidos na disciplina, além utilizar a biblioteca gráfica **SFML em C/C++** afim de criar a interface pra o usuário. 
 
 ## Demo
 
